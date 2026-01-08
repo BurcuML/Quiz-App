@@ -1,6 +1,8 @@
 function UI(){
     this.quiz_box = document.querySelector("#quiz-box")
     this.body = document.querySelector("#quiz-box #body")
+    this.correctIcon = '<i class="bi bi-check-circle"></i>'
+    this.incorrectIcon = '<i class="bi bi-x-circle"></i>'
 }
 
 UI.prototype.showQuestion = function(question){
