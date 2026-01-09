@@ -3,6 +3,7 @@ function UI(){
     this.body = document.querySelector("#quiz-box #body")
     this.correctIcon = '<i class="bi bi-check-circle"></i>'
     this.incorrectIcon = '<i class="bi bi-x-circle"></i>'
+    this.btnNext = document.querySelector(".btn-next")
 }
 
 UI.prototype.showQuestion = function(question){
@@ -42,4 +43,9 @@ UI.prototype.disableAllOption = function(){
         option.classList.add("disabled")
     }
 
+}
+
+UI.prototype.showQuestionNumber = function(questionNum, questionSum) {
+    const element = `<span class="badge text-bg-danger">${questionNum} / ${questionSum}</span>`;
+    document.querySelector(".question-index").innerHTML = element;
 }

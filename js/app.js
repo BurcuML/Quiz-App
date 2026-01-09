@@ -11,7 +11,7 @@ const questionList = [
 const quiz = new Quiz(questionList)
 const ui = new UI();
 
-document.getElementById("btngetQuestion").addEventListener("click", function () {
+ui.btnNext.addEventListener("click", function () {
     if (quiz.questions.length !== quiz.questionIndex) {
         ui.showQuestion(quiz.getQuestions())
 
