@@ -14,7 +14,7 @@ const ui = new UI();
 ui.btnNext.addEventListener("click", function () {
     if (quiz.questions.length !== quiz.questionIndex) {
         ui.showQuestion(quiz.getQuestions())
-
+        ui.showQuestionNumber(quiz.questionIndex+1, quiz.questions.length)
     }
 })
 
