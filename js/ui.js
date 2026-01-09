@@ -20,6 +20,7 @@ UI.prototype.showQuestion = function(question){
     for (let [key, value] of Object.entries(question.answers)) {
         const option = document.createElement("div");
         option.classList.add("option")
+        option.addEventListener("click", optionSelected)
 
         const span= document.createElement("span")
         span.textContent = key + ") " + value
@@ -32,4 +33,13 @@ UI.prototype.showQuestion = function(question){
     cardBody.appendChild(optionList)
 
     this.body.appendChild(cardBody)
+}
+
+UI.prototype.disableAllOption = function(){
+    const options = document.querySelectorAll(".option")
+
+        for (let option of options) {
+        option.classList.add("disabled")
+    }
+
 }
