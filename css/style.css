@@ -64,3 +64,46 @@
     font-weight: 500;
     margin-bottom: 10px;
 }
+
+#button-box {
+    text-align: center;
+}
+
+#button-box, #quiz-box, #score-box {
+    display: none;
+}
+
+#button-box.active, #quiz-box.active, #score-box.active {
+    display: block;
+}
+
+/* kalan süre */
+.time {
+    display: flex;
+    align-items: center;
+    background: #155724;
+    color: #fff;
+    padding: 5px;
+    border-radius: 3px;
+    font-size: 15px;
+}
+
+.time .time-text {
+    font-size: 14px;
+}
+.time .time-second {
+    background: #FFD33D;
+    border-radius: 3px;
+    padding: 3px;
+    margin-left: 3px;
+    width: 25px;
+    text-align: center;
+}
+
+.btn-next {
+    display: none;
+}
+
+.btn-next.show {
+    display: block;
+}
