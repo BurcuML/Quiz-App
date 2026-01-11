@@ -6,6 +6,12 @@
     transform: translate(-50%, -50%);   
 }
 
+#quiz-box #header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 .option-list {
     padding: 18px 10px;
 }
@@ -17,29 +23,30 @@
     font-size: 16px;
     margin-bottom: 10px;
     cursor: pointer;
+
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
 .option-list .option:hover{
-    color: black;
-    background-color: #ffd33d;
+    color: #112B2C;
+    background: #FFD33D;
 }
 
-.option-list .option.correct{
+.option-list .option.correct {
     color: #155724;
-    background-color: #d4edda;
-}
+    background: #d4edda;
+} 
 
-.option-list .option.incorrect{
+.option-list .option.incorrect {
     color: #721c24;
-    background-color: #f8d7da;
-}
+    background: #f8d7da;
+} 
 
-.option-list .option.disabled{
+.option-list .option.disabled {
     pointer-events: none;
-}
+} 
 
 .summary {
     display: flex;
