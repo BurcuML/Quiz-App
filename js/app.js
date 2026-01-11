@@ -14,14 +14,16 @@ const ui = new UI();
 ui.btnNext.addEventListener("click", function () {
     if (quiz.questions.length !== quiz.questionIndex) {
         ui.showQuestion(quiz.getQuestions())
-        ui.showQuestionNumber(quiz.questionIndex+1, quiz.questions.length)
+        ui.showQuestionNumber(quiz.questionIndex + 1, quiz.questions.length)
+    }else{
+        ui.showScore(quiz.correctAnswerNum, quiz.questions.length)
     }
 })
 
 function optionSelected(e) {
     const selectedElement = e.target;
 
-    if(selectedElement == "span"){
+    if (selectedElement == "span") {
         selectedElement = selectedElement.parentElement;
     }
 
@@ -29,7 +31,8 @@ function optionSelected(e) {
     const question = quiz.getQuestions()
 
     if (question.checkAnswer(answer)) {
-       selectedElement.classList.add("correct")
+        quiz.correctAnswerNum += 1;
+        selectedElement.classList.add("correct")
         selectedElement.insertAdjacentHTML("beforeend", ui.correctIcon)
     }
     else {
@@ -40,3 +43,13 @@ function optionSelected(e) {
     quiz.questionIndex += 1;
     ui.disableAllOption()
 }
+
+ui.btnReplay.addEventListener("click", function(){
+    quiz.questionIndex = 0;
+    quiz.correctAnswerNum = 0;
+    ui.btnNext.click();
+})
+
+ui.btnQuit.addEventListener("click", function(){
+   window.location.reload(); 
+})

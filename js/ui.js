@@ -4,6 +4,8 @@ function UI(){
     this.correctIcon = '<i class="bi bi-check-circle"></i>'
     this.incorrectIcon = '<i class="bi bi-x-circle"></i>'
     this.btnNext = document.querySelector(".btn-next")
+    this.btnReplay = document.querySelector(".btn-replay")
+    this.btnQuit = document.querySelector(".btn-quit")
 }
 
 UI.prototype.showQuestion = function(question){
@@ -48,4 +50,9 @@ UI.prototype.disableAllOption = function(){
 UI.prototype.showQuestionNumber = function(questionNum, questionSum) {
     const element = `<span class="badge text-bg-danger">${questionNum} / ${questionSum}</span>`;
     document.querySelector(".question-index").innerHTML = element;
+}
+
+UI.prototype.showScore = function(correctAnswer, questionSum) {
+    const element = `<span class="badge text-bg-danger"> Toplam ${questionSum} soruda ${correctAnswer} doğru cevap bildiniz.</span>`;
+    document.querySelector(".score-text").innerHTML = element;
 }
