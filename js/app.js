@@ -11,11 +11,23 @@ const questionList = [
 const quiz = new Quiz(questionList)
 const ui = new UI();
 
+ui.btnStart.addEventListener("click", function () {
+    StartTimer(10)
+    ui.quizBox.classList.add("active")
+    ui.btnBox.classList.remove("active")
+    ui.btnNext.classList.add("show")
+    ui.showQuestion(quiz.getQuestions())
+    ui.showQuestionNumber(quiz.questionIndex + 1, quiz.questions.length)
+})
+
 ui.btnNext.addEventListener("click", function () {
     if (quiz.questions.length !== quiz.questionIndex) {
+        StartTimer(10)
         ui.showQuestion(quiz.getQuestions())
         ui.showQuestionNumber(quiz.questionIndex + 1, quiz.questions.length)
-    }else{
+    } else {
+        ui.scoreBox.classList.add("active")
+        ui.quizBox.classList.remove("active")
         ui.showScore(quiz.correctAnswerNum, quiz.questions.length)
     }
 })
@@ -44,12 +56,27 @@ function optionSelected(e) {
     ui.disableAllOption()
 }
 
-ui.btnReplay.addEventListener("click", function(){
+ui.btnReplay.addEventListener("click", function () {
     quiz.questionIndex = 0;
     quiz.correctAnswerNum = 0;
-    ui.btnNext.click();
+    ui.btnStart.click();
+    ui.scoreBox.classList.remove("active")
 })
 
-ui.btnQuit.addEventListener("click", function(){
-   window.location.reload(); 
+ui.btnQuit.addEventListener("click", function () {
+    window.location.reload();
 })
+
+function StartTimer(time) {
+    let counter = setInterval(TimeRanges, 1000);
+
+    function timer(){
+        ui.timeSecond.textContent = time
+        time--
+
+        if(time<0){
+            clearInterval(counter)
+            ui.timeText.textContent= "Süre Bitti"
+        }
+    }
+}
