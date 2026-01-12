@@ -1,4 +1,4 @@
-function UI(){
+function UI() {
     this.quizBox = document.querySelector("#quiz-box")
     this.btnBox = document.querySelector("#button-box")
     this.scoreBox = document.querySelector("#score-box")
@@ -11,9 +11,11 @@ function UI(){
     this.btnQuit = document.querySelector(".btn-quit")
     this.timeText = document.querySelector(".time-text")
     this.timeSecond = document.querySelector(".time-second")
+    this.timeLine = document.querySelector(".time-line")
+
 }
 
-UI.prototype.showQuestion = function(question){
+UI.prototype.showQuestion = function (question) {
     this.body.innerHTML = ""
     const cardBody = document.createElement("div")
     cardBody.classList.add("card-body")
@@ -30,7 +32,7 @@ UI.prototype.showQuestion = function(question){
         option.classList.add("option")
         option.addEventListener("click", optionSelected)
 
-        const span= document.createElement("span")
+        const span = document.createElement("span")
         span.textContent = key + ") " + value
 
         option.appendChild(span)
@@ -43,21 +45,21 @@ UI.prototype.showQuestion = function(question){
     this.body.appendChild(cardBody)
 }
 
-UI.prototype.disableAllOption = function(){
+UI.prototype.disableAllOption = function () {
     const options = document.querySelectorAll(".option")
 
-        for (let option of options) {
+    for (let option of options) {
         option.classList.add("disabled")
     }
 
 }
 
-UI.prototype.showQuestionNumber = function(questionNum, questionSum) {
+UI.prototype.showQuestionNumber = function (questionNum, questionSum) {
     const element = `<span class="badge text-bg-danger">${questionNum} / ${questionSum}</span>`;
     document.querySelector(".question-index").innerHTML = element;
 }
 
-UI.prototype.showScore = function(correctAnswer, questionSum) {
+UI.prototype.showScore = function (correctAnswer, questionSum) {
     const element = `<span class="badge text-bg-danger"> Toplam ${questionSum} soruda ${correctAnswer} doğru cevap bildiniz.</span>`;
     document.querySelector(".score-text").innerHTML = element;
 }
